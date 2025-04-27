@@ -17,6 +17,9 @@ spec:
     - name: build-image
     - name: build
       default: main
+    - name: build-image
+    - name: build
+      default: main
   tasks:
     - name: init
       workspaces:
