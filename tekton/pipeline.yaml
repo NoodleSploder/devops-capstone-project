@@ -14,6 +14,8 @@ spec:
   params:
     - name: repo-url
     - name: branch
+    - name: build-image
+    - name: build
       default: main
     - name: build-image
     - name: build
