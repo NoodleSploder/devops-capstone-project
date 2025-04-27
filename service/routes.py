@@ -109,7 +109,7 @@ def update_account(account_id: int):
     """ Update an account depending on supplied ID """
     app.logger.info("Request to update an account")
 
-    check_content_type(HEADER_CONTENT_TYPE)
+    # check_content_type(HEADER_CONTENT_TYPE)
 
     account = Account.find(account_id)
 
