@@ -9,6 +9,8 @@ from service.models import Account
 from service.common import status  # HTTP Status Codes
 from . import app  # Import Flask application
 
+HEADER_CONTENT_TYPE = "application/json"
+
 
 ############################################################
 # Health Endpoint
@@ -56,6 +58,7 @@ def create_accounts():
     return make_response(
         jsonify(message), status.HTTP_201_CREATED, {"Location": location_url}
     )
+
 
 ######################################################################
 # LIST ALL ACCOUNTS
@@ -109,7 +112,7 @@ def update_account(account_id: int):
     """ Update an account depending on supplied ID """
     app.logger.info("Request to update an account")
 
-    # check_content_type(HEADER_CONTENT_TYPE)
+    check_content_type(HEADER_CONTENT_TYPE)
 
     account = Account.find(account_id)
 
@@ -150,11 +153,10 @@ def delete_account(account_id: int):
 
     return message, response_status
 
+
 ######################################################################
 #  U T I L I T Y   F U N C T I O N S
 ######################################################################
-
-
 def check_content_type(media_type):
     """Checks that the media type is correct"""
     content_type = request.headers.get("Content-Type")
